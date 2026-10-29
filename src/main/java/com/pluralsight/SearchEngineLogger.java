@@ -23,7 +23,7 @@ public class SearchEngineLogger {
             bufWriter.write(dateRightNow.format(format1));
             bufWriter.write(text);
             System.out.println("Enter a search term (X or x to exit):");
-            String searchTerm = myscanner.nextLine();
+            String searchTerm = myscanner.nextLine(); 
 
 
             if (searchTerm.equalsIgnoreCase("x")) {
