@@ -35,6 +35,8 @@ public class SearchEngineLogger {
                     bufWriter.write(dateRightNow.format(format1));
                     bufWriter.write(" exit");
                     notX = false;
+                    break;
+
 
                 }
                 bufWriter.write(dateRightNow.format(format1));
