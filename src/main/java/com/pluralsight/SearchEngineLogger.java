@@ -13,7 +13,7 @@ public class SearchEngineLogger {
         Scanner myscanner = new Scanner(System.in);
 
         // 2026-04-22 12:42:20 launch
-        DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter format1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss ");
         LocalDateTime dateRightNow = LocalDateTime.now();
 
         try {
@@ -22,16 +22,27 @@ public class SearchEngineLogger {
             String text = String.format(" launch");
             bufWriter.write(dateRightNow.format(format1));
             bufWriter.write(text);
+            bufWriter.write("\n");
             System.out.println("Enter a search term (X or x to exit):");
-            String searchTerm = myscanner.nextLine(); 
+            //String searchTerm = myscanner.nextLine();
 
+            // loop
+            boolean notX = true;
+            while (notX) {
+                String searchTerm = myscanner.nextLine();
+                if (searchTerm.equalsIgnoreCase("x")) {
+                    bufWriter.write("\n");
+                    bufWriter.write(dateRightNow.format(format1));
+                    bufWriter.write(" exit");
+                    notX = false;
 
-            if (searchTerm.equalsIgnoreCase("x")) {
-                bufWriter.write("\n");
+                }
                 bufWriter.write(dateRightNow.format(format1));
-                bufWriter.write(" exit");
+                bufWriter.write(searchTerm);
+                bufWriter.write("\n");
 
             }
+
             bufWriter.close();
 
         } catch (IOException e) {
@@ -44,8 +55,6 @@ public class SearchEngineLogger {
         // keep writing search term until loop ends
         // loop ends when user types in search term
         // when loop ends write exit to file
-
-
 
     }
 
