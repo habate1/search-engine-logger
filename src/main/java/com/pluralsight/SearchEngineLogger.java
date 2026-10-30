@@ -10,6 +10,14 @@ import java.util.Scanner;
 
 public class SearchEngineLogger {
     public static void main(String[] args) {
+
+        // while loop
+        // if user enters search term
+        // then write first search term
+        // keep writing search term until loop ends
+        // loop ends when user types in search term
+        // when loop ends write exit to file
+
         Scanner myscanner = new Scanner(System.in);
 
         // 2026-04-22 12:42:20 launch
@@ -31,32 +39,22 @@ public class SearchEngineLogger {
             while (notX) {
                 String searchTerm = myscanner.nextLine();
                 if (searchTerm.equalsIgnoreCase("x")) {
-                    bufWriter.write("\n");
+                    //bufWriter.write("\n");
                     bufWriter.write(dateRightNow.format(format1));
                     bufWriter.write(" exit");
                     notX = false;
                     break;
-
-
                 }
+                // write to the file
                 bufWriter.write(dateRightNow.format(format1));
-                bufWriter.write(searchTerm);
+                bufWriter.write("search " + searchTerm);
                 bufWriter.write("\n");
 
             }
-
             bufWriter.close();
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        // while loop
-        // if user enters search term
-        // then write first search term
-        // keep writing search term until loop ends
-        // loop ends when user types in search term
-        // when loop ends write exit to file
 
     }
 
